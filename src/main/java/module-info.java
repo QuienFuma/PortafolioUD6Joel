@@ -1,8 +1,9 @@
-module com.example.portafolioud6joel {
+module di.portafolioud6joel {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
-    opens com.example.portafolioud6joel to javafx.fxml;
-    exports com.example.portafolioud6joel;
+    opens di.portafolioud6joel to javafx.fxml;
+    exports di.portafolioud6joel;
 }

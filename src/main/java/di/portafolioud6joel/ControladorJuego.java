@@ -1,16 +1,19 @@
 package di.portafolioud6joel;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 
+import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
+import java.util.ResourceBundle;
 
-public class ControladorJuego {
+public class ControladorJuego implements Initializable {
 
     @FXML
     ImageView color1;
@@ -36,9 +39,13 @@ public class ControladorJuego {
     ImageView respuesta3;
     @FXML
     ImageView respuesta4;
-    int contador = 1;
-
-
+    int contador1 = 1;
+    int contador2 = 1;
+    int contador3 = 1;
+    int contador4 = 1;
+    ArrayList<Integer> combinacionRes = new ArrayList<Integer>();
+    ArrayList<Integer> combinacionColores = new ArrayList<Integer>();
+    int errores=0;
     public ControladorJuego() {
     }
 
@@ -158,38 +165,72 @@ public class ControladorJuego {
     @FXML
     public void boton1(){
 
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador1+".png"));
         respuesta1.setImage(imagen);
-        if (contador==8){
-            contador=1;
-        }else {contador++;}
+        if (contador1==8){
+            contador1=1;
+        }else {contador1++;}
+        combinacionColores.add(0,contador1);
     }
     @FXML
     public void boton2(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador2+".png"));
         respuesta2.setImage(imagen);
-        if (contador==8){
-            contador=1;
-        }else {contador++;}
+        if (contador2==8){
+            contador2=1;
+        }else {contador2++;}
+        combinacionColores.add(1,contador2);
     }
     @FXML
     public void boton3(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador3+".png"));
         respuesta3.setImage(imagen);
-        if (contador==8){
-            contador=1;
-        }else {contador++;}
+        if (contador3==8){
+            contador3=1;
+        }else {contador3++;}
+        combinacionColores.add(2,contador3);
     }
     @FXML
     public void boton4(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador4+".png"));
         respuesta4.setImage(imagen);
-        if (contador==8){
-            contador=1;
-        }else {contador++;}
+        if (contador4==8){
+            contador4=1;
+        }else {contador4++;}
+        combinacionColores.add(3,contador4);
     }
+
+
     @FXML
     public void respuesta(){
 
+       for(int i =0; i<3;i++){
+           if(combinacionRes.get(i) == combinacionColores.get(i)){
+               Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+combinacionRes.get(i)+".png"));
+               if(i==0){
+               color1.setImage(imagen);} else if (i==1) {
+                   color2.setImage(imagen);
+               } else if (i==3) {
+                   color3.setImage(imagen);
+               }else{color4.setImage(imagen);}
+           }else{
+               errores++;
+               error.setText(String.valueOf(errores));
+           }
+       }
+    }
+
+    public void crearCombinacion() {
+
+        Random aleatorio = new Random();
+        for(int i = 1; i<4; i++) {
+            int numeroAleatorio = aleatorio.nextInt(4);
+            combinacionRes.add(numeroAleatorio);
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        crearCombinacion();
     }
 }

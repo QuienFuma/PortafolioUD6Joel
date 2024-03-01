@@ -3,8 +3,12 @@ package di.portafolioud6joel;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import javax.swing.text.html.ImageView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorJuego {
 
@@ -32,7 +36,7 @@ public class ControladorJuego {
     ImageView respuesta3;
     @FXML
     ImageView respuesta4;
-
+    int contador = 1;
 
 
     public ControladorJuego() {
@@ -154,18 +158,35 @@ public class ControladorJuego {
     @FXML
     public void boton1(){
 
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        respuesta1.setImage(imagen);
+        if (contador==8){
+            contador=1;
+        }else {contador++;}
     }
     @FXML
     public void boton2(){
-
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        respuesta2.setImage(imagen);
+        if (contador==8){
+            contador=1;
+        }else {contador++;}
     }
     @FXML
     public void boton3(){
-
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        respuesta3.setImage(imagen);
+        if (contador==8){
+            contador=1;
+        }else {contador++;}
     }
     @FXML
     public void boton4(){
-
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador+".png"));
+        respuesta4.setImage(imagen);
+        if (contador==8){
+            contador=1;
+        }else {contador++;}
     }
     @FXML
     public void respuesta(){

@@ -39,13 +39,14 @@ public class ControladorJuego implements Initializable {
     ImageView respuesta3;
     @FXML
     ImageView respuesta4;
-    int contador1 = 1;
-    int contador2 = 1;
-    int contador3 = 1;
-    int contador4 = 1;
-    ArrayList<Integer> combinacionRes = new ArrayList<Integer>();
-    ArrayList<Integer> combinacionColores = new ArrayList<Integer>();
-    int errores=0;
+    int contador1 = 0;
+    int contador2 = 0;
+    int contador3 = 0;
+    int contador4 = 0;
+    ArrayList<Integer> combinacionRes = new ArrayList<>();
+    ArrayList<Integer> combinacionColores = new ArrayList<>();
+    int errores = 0;
+
     public ControladorJuego() {
     }
 
@@ -163,69 +164,84 @@ public class ControladorJuego implements Initializable {
     }
 
     @FXML
-    public void boton1(){
-
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador1+".png"));
+    public void boton1() {
+        contador1++;
+        if (contador1 ==9) {
+            contador1 = 1;
+        }
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador1 + ".png"));
+        System.out.println(contador1);
         respuesta1.setImage(imagen);
-        if (contador1==8){
-            contador1=1;
-        }else {contador1++;}
-        combinacionColores.add(0,contador1);
+        combinacionColores.set(0, (contador1));
     }
+
     @FXML
-    public void boton2(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador2+".png"));
+    public void boton2() {
+        contador2++;
+        if (contador2 ==9) {
+            contador2 = 1;
+        }
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador2 + ".png"));
+        System.out.println(contador2);
         respuesta2.setImage(imagen);
-        if (contador2==8){
-            contador2=1;
-        }else {contador2++;}
-        combinacionColores.add(1,contador2);
+        combinacionColores.set(1, (contador2));
     }
+
     @FXML
-    public void boton3(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador3+".png"));
+    public void boton3() {
+        contador3++;
+        if (contador3 ==9) {
+            contador3 = 1;
+        }
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador3 + ".png"));
+        System.out.println(contador3);
         respuesta3.setImage(imagen);
-        if (contador3==8){
-            contador3=1;
-        }else {contador3++;}
-        combinacionColores.add(2,contador3);
+        combinacionColores.set(2, (contador3));
     }
+
     @FXML
-    public void boton4(){
-        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+contador4+".png"));
+    public void boton4() {
+        contador4++;
+        if (contador4 ==9) {
+            contador4 = 1;
+        }
+        Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador4 + ".png"));
+        System.out.println(contador4);
         respuesta4.setImage(imagen);
-        if (contador4==8){
-            contador4=1;
-        }else {contador4++;}
-        combinacionColores.add(3,contador4);
+        combinacionColores.set(3, (contador4));
     }
-
 
     @FXML
-    public void respuesta(){
+    public void respuesta() {
 
-       for(int i =0; i<3;i++){
-           if(combinacionRes.get(i) == combinacionColores.get(i)){
-               Image imagen = new Image(getClass().getResourceAsStream("Imagenes/"+combinacionRes.get(i)+".png"));
-               if(i==0){
-               color1.setImage(imagen);} else if (i==1) {
-                   color2.setImage(imagen);
-               } else if (i==3) {
-                   color3.setImage(imagen);
-               }else{color4.setImage(imagen);}
-           }else{
-               errores++;
-               error.setText(String.valueOf(errores));
-           }
-       }
+        System.out.println(combinacionColores);
+        System.out.println(combinacionRes);
+        for (int i = 0; i < 4; i++) {
+            if (combinacionRes.get(i) == combinacionColores.get(i)) {
+                Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
+                if (i == 0) {
+                    color1.setImage(imagen);
+                } else if (i == 1) {
+                    color2.setImage(imagen);
+                } else if (i == 2) {
+                    color3.setImage(imagen);
+                } else if (i == 3) {
+                    color4.setImage(imagen);
+                }
+            } else {
+                errores++;
+                error.setText(String.valueOf(errores));
+            }
+        }
     }
 
+    //Crea 4 numeros aleatorios entre 0 y 8 y los añade a una lista
     public void crearCombinacion() {
-
         Random aleatorio = new Random();
-        for(int i = 1; i<4; i++) {
-            int numeroAleatorio = aleatorio.nextInt(4);
+        for (int i = 0; i < 4; i++) {
+            int numeroAleatorio = aleatorio.nextInt(8) + 1;
             combinacionRes.add(numeroAleatorio);
+            combinacionColores.add(0);
         }
     }
 

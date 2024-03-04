@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: green; -fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -52,45 +56,45 @@
                </VBox.margin></ComboBox>
             <Label text="¿Cual va a ser tu respuesta?">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Errores: ">
+                  <Label text="Errores: " textFill="#eb0101">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Label>
-                  <Label fx:id="error" layoutX="286.0" layoutY="23.0" text="0">
+                  <Label fx:id="error" layoutX="286.0" layoutY="23.0" text="0" textFill="RED">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Colores encontrados: ">
+                  <Label text="Colores encontrados: " textFill="#e1c435">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Label>
-                  <Label fx:id="colorEncontrado" layoutX="252.0" layoutY="23.0" text="0">
+                  <Label fx:id="colorEncontrado" layoutX="252.0" layoutY="23.0" text="0" textFill="#d3c013">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="71.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Aciertos: ">
+                  <Label text="Aciertos: " textFill="#1d9421">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="acierto" layoutX="286.0" layoutY="24.0" text="0">
+                  <Label fx:id="acierto" layoutX="286.0" layoutY="24.0" text="0" textFill="#35972a">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -101,42 +105,46 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="respuesta1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#boton1" text="Cambiar color" />
+                  <Button mnemonicParsing="false" onAction="#boton1" style="-fx-background-color: transparent; -fx-border-color: green;">
+                     <graphic>
+                        <ImageView fx:id="respuesta1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagenes/Click.PNG" />
+                           </image></ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="respuesta2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#boton2" text="Cambiar color" />
+                  <Button mnemonicParsing="false" onAction="#boton2" style="-fx-background-color: transparent; -fx-border-color: green;">
+                     <graphic>
+                        <ImageView fx:id="respuesta2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagenes/Click.PNG" />
+                           </image></ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="respuesta3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#boton3" text="Cambiar color" />
+                  <Button mnemonicParsing="false" onAction="#boton3" style="-fx-background-color: transparent; -fx-border-color: green;">
+                     <graphic>
+                        <ImageView fx:id="respuesta3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagenes/Click.PNG" />
+                           </image></ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fx:id="respuesta4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                     <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Button mnemonicParsing="false" onAction="#boton4" text="Cambiar color" />
+                  <Button mnemonicParsing="false" onAction="#boton4" style="-fx-background-color: transparent; -fx-border-color: green;">
+                     <graphic>
+                        <ImageView fx:id="respuesta4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Imagenes/Click.PNG" />
+                           </image></ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
          </children>

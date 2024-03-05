@@ -16,55 +16,38 @@ import java.util.ResourceBundle;
 public class ControladorJuego implements Initializable {
 
     @FXML
-    ImageView color1;
+    private ImageView color1;
     @FXML
-    ImageView color2;
+    private ImageView color2;
     @FXML
-    ImageView color3;
+    private ImageView color3;
     @FXML
-    ImageView color4;
+    private ImageView color4;
     @FXML
-    ComboBox dificultad;
+    private ComboBox dificultad;
     @FXML
-    Label error;
+    private Label error;
     @FXML
-    Label colorEncontrado;
+    private Label colorEncontrado;
     @FXML
-    Label acierto;
+    private Label acierto;
     @FXML
-    ImageView respuesta1;
+    private ImageView respuesta1;
     @FXML
-    ImageView respuesta2;
+    private ImageView respuesta2;
     @FXML
-    ImageView respuesta3;
+    private ImageView respuesta3;
     @FXML
-    ImageView respuesta4;
-    int contador1 = 0;
-    int contador2 = 0;
-    int contador3 = 0;
-    int contador4 = 0;
-    ArrayList<Integer> combinacionRes = new ArrayList<>();
-    ArrayList<Integer> combinacionColores = new ArrayList<>();
-    int errores = 0;
+    private ImageView respuesta4;
+    private int contador1 = 0;
+    private int contador2 = 0;
+    private int contador3 = 0;
+    private int contador4 = 0;
+    private ArrayList<Integer> combinacionRes = new ArrayList<>();
+    private ArrayList<Integer> combinacionColores = new ArrayList<>();
+    private int errores = 0;
 
     public ControladorJuego() {
-    }
-
-    public ControladorJuego(ImageView color1, ImageView color2, ImageView color3, ImageView color4, ComboBox dificultad,
-                            Label error, Label colorEncontrado, Label acierto, ImageView respuesta1, ImageView respuesta2,
-                            ImageView respuesta3, ImageView respuesta4) {
-        this.color1 = color1;
-        this.color2 = color2;
-        this.color3 = color3;
-        this.color4 = color4;
-        this.dificultad = dificultad;
-        this.error = error;
-        this.colorEncontrado = colorEncontrado;
-        this.acierto = acierto;
-        this.respuesta1 = respuesta1;
-        this.respuesta2 = respuesta2;
-        this.respuesta3 = respuesta3;
-        this.respuesta4 = respuesta4;
     }
 
     public ImageView getColor1() {
@@ -163,6 +146,62 @@ public class ControladorJuego implements Initializable {
         this.respuesta4 = respuesta4;
     }
 
+    public int getContador1() {
+        return contador1;
+    }
+
+    public void setContador1(int contador1) {
+        this.contador1 = contador1;
+    }
+
+    public int getContador2() {
+        return contador2;
+    }
+
+    public void setContador2(int contador2) {
+        this.contador2 = contador2;
+    }
+
+    public int getContador3() {
+        return contador3;
+    }
+
+    public void setContador3(int contador3) {
+        this.contador3 = contador3;
+    }
+
+    public int getContador4() {
+        return contador4;
+    }
+
+    public void setContador4(int contador4) {
+        this.contador4 = contador4;
+    }
+
+    public ArrayList<Integer> getCombinacionRes() {
+        return combinacionRes;
+    }
+
+    public void setCombinacionRes(ArrayList<Integer> combinacionRes) {
+        this.combinacionRes = combinacionRes;
+    }
+
+    public ArrayList<Integer> getCombinacionColores() {
+        return combinacionColores;
+    }
+
+    public void setCombinacionColores(ArrayList<Integer> combinacionColores) {
+        this.combinacionColores = combinacionColores;
+    }
+
+    public int getErrores() {
+        return errores;
+    }
+
+    public void setErrores(int errores) {
+        this.errores = errores;
+    }
+
     @FXML
     public void boton1() {
         contador1++;
@@ -248,5 +287,6 @@ public class ControladorJuego implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         crearCombinacion();
+        dificultad.getItems().addAll("Facil","Medio","Dificil");
     }
 }

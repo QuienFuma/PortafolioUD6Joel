@@ -32,6 +32,8 @@ public class ControladorJuego implements Initializable {
     @FXML
     private Label acierto;
     @FXML
+    private Label juego;
+    @FXML
     private ImageView respuesta1;
     @FXML
     private ImageView respuesta2;
@@ -46,6 +48,7 @@ public class ControladorJuego implements Initializable {
     private ArrayList<Integer> combinacionRes = new ArrayList<>();
     private ArrayList<Integer> combinacionColores = new ArrayList<>();
     private int errores = 0;
+
 
     public ControladorJuego() {
     }
@@ -252,7 +255,8 @@ public class ControladorJuego implements Initializable {
 
     @FXML
     public void respuesta() {
-
+        int sumaColores =0;
+        int coloresEncontrados =0;
         System.out.println(combinacionColores);
         System.out.println(combinacionRes);
         for (int i = 0; i < 4; i++) {
@@ -260,33 +264,58 @@ public class ControladorJuego implements Initializable {
                 Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
                 if (i == 0) {
                     color1.setImage(imagen);
+                    sumaColores++;
                 } else if (i == 1) {
                     color2.setImage(imagen);
+                    sumaColores++;
                 } else if (i == 2) {
                     color3.setImage(imagen);
+                    sumaColores++;
                 } else if (i == 3) {
                     color4.setImage(imagen);
+                    sumaColores++;
                 }
-            } else {
+            } else if(combinacionRes.contains(combinacionColores.get(i))){
+                coloresEncontrados++;
+                colorEncontrado.setText(String.valueOf(coloresEncontrados));
+                errores++;
+            }else{
                 errores++;
                 error.setText(String.valueOf(errores));
             }
         }
+        acierto.setText(String.valueOf(sumaColores));
+        finJuego();
     }
-
-    //Crea 4 numeros aleatorios entre 0 y 8 y los añade a una lista
+    public void finJuego(){
+        if(errores >= 45 && dificultad.equals("Fácil")){
+            juego.setText("FIN DEL JUEGO");
+        }else if(errores >= 30 && dificultad.equals("Medio")){
+            juego.setText("FIN DEL JUEGO");
+        }else if(errores >= 22 && dificultad.equals("Dificil")){
+            juego.setText("FIN DEL JUEGO");
+        } else if (acierto.equals("4")) {
+            juego.setText("Enhorabuena has ganado!!");
+        }
+    }
+    //Crea 4 numeros aleatorios diferentes entre 0 y 8 y los añade a una lista
     public void crearCombinacion() {
         Random aleatorio = new Random();
-        for (int i = 0; i < 4; i++) {
+        int contador=0;
+        while(contador<4){
             int numeroAleatorio = aleatorio.nextInt(8) + 1;
-            combinacionRes.add(numeroAleatorio);
-            combinacionColores.add(0);
+            if (!combinacionRes.contains(numeroAleatorio)){
+                combinacionRes.add(numeroAleatorio);
+                combinacionColores.add(0);
+                contador++;
+            }
         }
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         crearCombinacion();
-        dificultad.getItems().addAll("Facil","Medio","Dificil");
+        dificultad.getItems().addAll("Fácil","Medio","Dificil");
     }
 }

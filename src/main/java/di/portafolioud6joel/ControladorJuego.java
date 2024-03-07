@@ -2,6 +2,7 @@ package di.portafolioud6joel;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,199 +17,32 @@ import java.util.ResourceBundle;
 public class ControladorJuego implements Initializable {
 
     @FXML
-    private ImageView color1;
-    @FXML
-    private ImageView color2;
-    @FXML
-    private ImageView color3;
-    @FXML
-    private ImageView color4;
+    private ImageView color1, color2, color3, color4, encuentro1, encuentro2, encuentro3, encuentro4;
     @FXML
     private ComboBox dificultad;
     @FXML
-    private Label error;
+    private Label error, acierto, juego;
     @FXML
-    private Label colorEncontrado;
+    private ImageView respuesta1, respuesta2, respuesta3, respuesta4;
     @FXML
-    private Label acierto;
-    @FXML
-    private Label juego;
-    @FXML
-    private ImageView respuesta1;
-    @FXML
-    private ImageView respuesta2;
-    @FXML
-    private ImageView respuesta3;
-    @FXML
-    private ImageView respuesta4;
+    private Button boton1, boton2, boton3, boton4, botonReinicio, botonRespuesta;
     private int contador1 = 0;
     private int contador2 = 0;
     private int contador3 = 0;
     private int contador4 = 0;
     private ArrayList<Integer> combinacionRes = new ArrayList<>();
     private ArrayList<Integer> combinacionColores = new ArrayList<>();
+    private ArrayList<Integer> coloresCantidadEnc = new ArrayList<>();
     private int errores = 0;
-
+    private int coloresEncontrados = 0;
 
     public ControladorJuego() {
-    }
-
-    public ImageView getColor1() {
-        return color1;
-    }
-
-    public void setColor1(ImageView color1) {
-        this.color1 = color1;
-    }
-
-    public ImageView getColor2() {
-        return color2;
-    }
-
-    public void setColor2(ImageView color2) {
-        this.color2 = color2;
-    }
-
-    public ImageView getColor3() {
-        return color3;
-    }
-
-    public void setColor3(ImageView color3) {
-        this.color3 = color3;
-    }
-
-    public ImageView getColor4() {
-        return color4;
-    }
-
-    public void setColor4(ImageView color4) {
-        this.color4 = color4;
-    }
-
-    public ComboBox getDificultad() {
-        return dificultad;
-    }
-
-    public void setDificultad(ComboBox dificultad) {
-        this.dificultad = dificultad;
-    }
-
-    public Label getError() {
-        return error;
-    }
-
-    public void setError(Label error) {
-        this.error = error;
-    }
-
-    public Label getColorEncontrado() {
-        return colorEncontrado;
-    }
-
-    public void setColorEncontrado(Label colorEncontrado) {
-        this.colorEncontrado = colorEncontrado;
-    }
-
-    public Label getAcierto() {
-        return acierto;
-    }
-
-    public void setAcierto(Label acierto) {
-        this.acierto = acierto;
-    }
-
-    public ImageView getRespuesta1() {
-        return respuesta1;
-    }
-
-    public void setRespuesta1(ImageView respuesta1) {
-        this.respuesta1 = respuesta1;
-    }
-
-    public ImageView getRespuesta2() {
-        return respuesta2;
-    }
-
-    public void setRespuesta2(ImageView respuesta2) {
-        this.respuesta2 = respuesta2;
-    }
-
-    public ImageView getRespuesta3() {
-        return respuesta3;
-    }
-
-    public void setRespuesta3(ImageView respuesta3) {
-        this.respuesta3 = respuesta3;
-    }
-
-    public ImageView getRespuesta4() {
-        return respuesta4;
-    }
-
-    public void setRespuesta4(ImageView respuesta4) {
-        this.respuesta4 = respuesta4;
-    }
-
-    public int getContador1() {
-        return contador1;
-    }
-
-    public void setContador1(int contador1) {
-        this.contador1 = contador1;
-    }
-
-    public int getContador2() {
-        return contador2;
-    }
-
-    public void setContador2(int contador2) {
-        this.contador2 = contador2;
-    }
-
-    public int getContador3() {
-        return contador3;
-    }
-
-    public void setContador3(int contador3) {
-        this.contador3 = contador3;
-    }
-
-    public int getContador4() {
-        return contador4;
-    }
-
-    public void setContador4(int contador4) {
-        this.contador4 = contador4;
-    }
-
-    public ArrayList<Integer> getCombinacionRes() {
-        return combinacionRes;
-    }
-
-    public void setCombinacionRes(ArrayList<Integer> combinacionRes) {
-        this.combinacionRes = combinacionRes;
-    }
-
-    public ArrayList<Integer> getCombinacionColores() {
-        return combinacionColores;
-    }
-
-    public void setCombinacionColores(ArrayList<Integer> combinacionColores) {
-        this.combinacionColores = combinacionColores;
-    }
-
-    public int getErrores() {
-        return errores;
-    }
-
-    public void setErrores(int errores) {
-        this.errores = errores;
     }
 
     @FXML
     public void boton1() {
         contador1++;
-        if (contador1 ==9) {
+        if (contador1 == 9) {
             contador1 = 1;
         }
         Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador1 + ".png"));
@@ -220,7 +54,7 @@ public class ControladorJuego implements Initializable {
     @FXML
     public void boton2() {
         contador2++;
-        if (contador2 ==9) {
+        if (contador2 == 9) {
             contador2 = 1;
         }
         Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador2 + ".png"));
@@ -232,7 +66,7 @@ public class ControladorJuego implements Initializable {
     @FXML
     public void boton3() {
         contador3++;
-        if (contador3 ==9) {
+        if (contador3 == 9) {
             contador3 = 1;
         }
         Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador3 + ".png"));
@@ -244,7 +78,7 @@ public class ControladorJuego implements Initializable {
     @FXML
     public void boton4() {
         contador4++;
-        if (contador4 ==9) {
+        if (contador4 == 9) {
             contador4 = 1;
         }
         Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + contador4 + ".png"));
@@ -255,8 +89,8 @@ public class ControladorJuego implements Initializable {
 
     @FXML
     public void respuesta() {
-        int sumaColores =0;
-        int coloresEncontrados =0;
+        int sumaColores = 0;
+
         System.out.println(combinacionColores);
         System.out.println(combinacionRes);
         for (int i = 0; i < 4; i++) {
@@ -265,57 +99,137 @@ public class ControladorJuego implements Initializable {
                 if (i == 0) {
                     color1.setImage(imagen);
                     sumaColores++;
+                    boton1.setDisable(true);
                 } else if (i == 1) {
                     color2.setImage(imagen);
                     sumaColores++;
+                    boton2.setDisable(true);
                 } else if (i == 2) {
                     color3.setImage(imagen);
                     sumaColores++;
+                    boton3.setDisable(true);
                 } else if (i == 3) {
                     color4.setImage(imagen);
                     sumaColores++;
+                    boton4.setDisable(true);
                 }
-            } else if(combinacionRes.contains(combinacionColores.get(i))){
+            }/* else if (combinacionRes.contains(combinacionColores.get(i)) && !coloresCantidadEnc.contains(i)) {
+                Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
                 coloresEncontrados++;
-                colorEncontrado.setText(String.valueOf(coloresEncontrados));
-                errores++;
-            }else{
-                errores++;
-                error.setText(String.valueOf(errores));
+                if (coloresEncontrados==1){
+                    encuentro1.setImage(imagen);
+                } else if (coloresEncontrados==2) {
+                    encuentro2.setImage(imagen);
+                } else if (coloresEncontrados==3) {
+                    encuentro3.setImage(imagen);
+                } else if (coloresEncontrados==4) {
+                    encuentro4.setImage(imagen);
+                }
+                coloresCantidadEnc.add(i);
+            }*/
+            for(int u = 0;combinacionRes.contains(combinacionColores.get(u));u++){
+
+
             }
+
         }
+        errores++;
+        error.setText(String.valueOf(errores));
         acierto.setText(String.valueOf(sumaColores));
         finJuego();
     }
-    public void finJuego(){
-        if(errores >= 45 && dificultad.equals("Fácil")){
-            juego.setText("FIN DEL JUEGO");
-        }else if(errores >= 30 && dificultad.equals("Medio")){
-            juego.setText("FIN DEL JUEGO");
-        }else if(errores >= 22 && dificultad.equals("Dificil")){
-            juego.setText("FIN DEL JUEGO");
-        } else if (acierto.equals("4")) {
+
+    public void finJuego() {
+        String nivel = (String) dificultad.getValue();
+        switch (nivel) {
+            case "Fácil":
+                if (errores >= 12) {
+                    juego.setText("FIN DEL JUEGO");
+                    reiniciarBotones();
+                }
+                break;
+            case "Medio":
+                if (errores >= 10) {
+                    juego.setText("FIN DEL JUEGO");
+                    reiniciarBotones();
+                }
+                break;
+            case "Dificil":
+                if (errores >= 7) {
+                    juego.setText("FIN DEL JUEGO");
+                    reiniciarBotones();
+                }
+                break;
+        }
+        System.out.println(acierto.getText());
+        if (Integer.parseInt(acierto.getText()) == 4) {
             juego.setText("Enhorabuena has ganado!!");
+            botonReinicio.setVisible(true);
+            dificultad.setDisable(true);
+            botonRespuesta.setDisable(true);
         }
     }
+
+
+    private void reiniciarBotones() {
+        botonReinicio.setDisable(false);
+        botonReinicio.setVisible(true);
+        boton1.setDisable(true);
+        boton2.setDisable(true);
+        boton3.setDisable(true);
+        boton4.setDisable(true);
+        dificultad.setDisable(true);
+        botonRespuesta.setDisable(true);
+    }
+
     //Crea 4 numeros aleatorios diferentes entre 0 y 8 y los añade a una lista
     public void crearCombinacion() {
         Random aleatorio = new Random();
-        int contador=0;
-        while(contador<4){
+        int contador = 0;
+        while (contador < 4) {
             int numeroAleatorio = aleatorio.nextInt(8) + 1;
-            if (!combinacionRes.contains(numeroAleatorio)){
+            if (!combinacionRes.contains(numeroAleatorio)) {
                 combinacionRes.add(numeroAleatorio);
                 combinacionColores.add(0);
                 contador++;
             }
         }
+    }
 
+    public void reiniciar() {
+        combinacionRes.clear();
+        combinacionColores.clear();
+        crearCombinacion();
+        Image imagen = new Image(getClass().getResourceAsStream("Interrogante.PNG"));
+        Image imagen2 = new Image(getClass().getResourceAsStream("Imagenes/Click.png"));
+        boton1.setDisable(false);
+        boton2.setDisable(false);
+        boton3.setDisable(false);
+        boton4.setDisable(false);
+        dificultad.setDisable(false);
+        botonRespuesta.setDisable(false);
+        acierto.setText("0");
+        error.setText("0");
+        errores = 0;
+        color1.setImage(imagen);
+        color2.setImage(imagen);
+        color3.setImage(imagen);
+        color4.setImage(imagen);
+        respuesta1.setImage(imagen2);
+        respuesta2.setImage(imagen2);
+        respuesta3.setImage(imagen2);
+        respuesta4.setImage(imagen2);
+        botonReinicio.setVisible(false);
+        encuentro1.setImage(null);
+        encuentro2.setImage(null);
+        encuentro3.setImage(null);
+        encuentro4.setImage(null);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         crearCombinacion();
-        dificultad.getItems().addAll("Fácil","Medio","Dificil");
+        dificultad.getItems().addAll("Fácil", "Medio", "Dificil");
+        dificultad.setValue(String.valueOf("Fácil"));
     }
 }

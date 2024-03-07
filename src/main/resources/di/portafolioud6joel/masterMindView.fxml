@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: green; -fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="663.0" style="-fx-background-color: lightgray; -fx-border-color: grey; -fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="TOP_CENTER" prefHeight="72.0" prefWidth="580.0">
          <children>
             <ImageView fx:id="color1" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
                   <Image url="@Interrogante.PNG" />
@@ -20,7 +24,7 @@
             </ImageView>
             <ImageView fx:id="color2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
                   <Image url="@Interrogante.PNG" />
@@ -28,7 +32,7 @@
             </ImageView>
             <ImageView fx:id="color3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
                   <Image url="@Interrogante.PNG" />
@@ -36,7 +40,7 @@
             </ImageView>
             <ImageView fx:id="color4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
                   <Image url="@Interrogante.PNG" />
@@ -46,7 +50,7 @@
       </HBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <ComboBox fx:id="dificultad" prefHeight="25.0" prefWidth="86.0" promptText="NIVEL">
+            <ComboBox fx:id="dificultad" prefHeight="25.0" prefWidth="86.0" promptText="Fácil">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin></ComboBox>
@@ -74,11 +78,38 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Label>
-                  <Label fx:id="colorEncontrado" layoutX="252.0" layoutY="23.0" text="0" textFill="#d3c013">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="encuentro1" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="encuentro2" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="encuentro3" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fx:id="encuentro4" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="71.0" prefHeight="100.0" prefWidth="200.0">
@@ -94,6 +125,9 @@
                      </font>
                   </Label>
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>
@@ -101,7 +135,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#boton1" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton1" mnemonicParsing="false" onAction="#boton1" style="-fx-background-color: transparent; -fx-border-color: green;">
                      <graphic>
                         <ImageView fx:id="respuesta1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -112,7 +146,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#boton2" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton2" mnemonicParsing="false" onAction="#boton2" style="-fx-background-color: transparent; -fx-border-color: green;">
                      <graphic>
                         <ImageView fx:id="respuesta2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -123,7 +157,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#boton3" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton3" mnemonicParsing="false" onAction="#boton3" style="-fx-background-color: transparent; -fx-border-color: green;">
                      <graphic>
                         <ImageView fx:id="respuesta3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -134,7 +168,7 @@
             </VBox>
             <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#boton4" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton4" mnemonicParsing="false" onAction="#boton4" style="-fx-background-color: transparent; -fx-border-color: green;">
                      <graphic>
                         <ImageView fx:id="respuesta4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -147,7 +181,15 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#respuesta" text="Responder" />
+            <Button fx:id="botonRespuesta" mnemonicParsing="false" onAction="#respuesta" text="Responder">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="botonReinicio" mnemonicParsing="false" onAction="#reiniciar" text="Reiniciar" visible="false" />
          </children>
       </HBox>
    </children>

@@ -33,7 +33,9 @@ public class ControladorJuego implements Initializable {
     private int contador4 = 0;
     private ArrayList<Integer> combinacionRes = new ArrayList<>();
     private ArrayList<Integer> combinacionColores = new ArrayList<>();
+    ArrayList<Integer> coloresEncontrados = new ArrayList<>();
     private int errores = 0;
+    int encontrados = 0;
 
     public ControladorJuego() {
     }
@@ -90,7 +92,7 @@ public class ControladorJuego implements Initializable {
     public void respuesta() {
         dificultad.setDisable(true);
         int sumaColores = 0;
-        int encontrados = 0;
+
         List<Integer> colEcontrados=new ArrayList<>();
         System.out.println(combinacionColores);
         System.out.println(combinacionRes);
@@ -121,45 +123,29 @@ public class ControladorJuego implements Initializable {
 
                 }
             } else if (combinacionRes.contains(combinacionColores.get(i))) {
-                ArrayList<Integer> coloresEncontrados = new ArrayList<>();
+
+                if (!coloresEncontrados.contains(combinacionColores.get(i))) {
                     coloresEncontrados.add(combinacionColores.get(i));
                     encontrados++;
                     Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
 
                     switch (encontrados) {
                         case 1:
-                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
-                            encuentro1.setImage(imagen);}
+                            encuentro1.setImage(imagen);
                             break;
                         case 2:
-                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
-                                encuentro2.setImage(imagen);}
+                            encuentro2.setImage(imagen);
                             break;
                         case 3:
-                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
-                                encuentro3.setImage(imagen);}
+                            encuentro3.setImage(imagen);
                             break;
                         case 4:
-                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
-                                encuentro4.setImage(imagen);}
+                            encuentro4.setImage(imagen);
                             break;
                     }
-            }
-            /* else if (combinacionRes.contains(combinacionColores.get(i)) && !coloresCantidadEnc.contains(i)) {
-                Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
-                coloresEncontrados++;
-                if (coloresEncontrados==1){
-                    encuentro1.setImage(imagen);
-                } else if (coloresEncontrados==2) {
-                    encuentro2.setImage(imagen);
-                } else if (coloresEncontrados==3) {
-                    encuentro3.setImage(imagen);
-                } else if (coloresEncontrados==4) {
-                    encuentro4.setImage(imagen);
                 }
-                coloresCantidadEnc.add(i);
-            }*/
 
+            }
 
         }
         errores++;
@@ -228,6 +214,8 @@ public class ControladorJuego implements Initializable {
     public void reiniciar() {
         combinacionRes.clear();
         combinacionColores.clear();
+        coloresEncontrados.clear();
+        encontrados = 0;
         crearCombinacion();
         Image imagen = new Image(getClass().getResourceAsStream("Interrogante.PNG"));
         Image imagen2 = new Image(getClass().getResourceAsStream("Imagenes/Click.png"));
@@ -254,6 +242,7 @@ public class ControladorJuego implements Initializable {
         encuentro3.setImage(null);
         encuentro4.setImage(null);
         dificultad.setDisable(false);
+        juego.setText("¿Cual va a ser tu respuesta?");
     }
 
     @Override

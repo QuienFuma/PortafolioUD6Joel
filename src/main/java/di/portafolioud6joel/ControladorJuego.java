@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
 
 
 import java.net.URL;
@@ -27,6 +28,8 @@ public class ControladorJuego implements Initializable {
     private ImageView respuesta1, respuesta2, respuesta3, respuesta4;
     @FXML
     private Button boton1, boton2, boton3, boton4, botonReinicio, botonRespuesta;
+    @FXML
+    private VBox fondo;
     private int contador1 = 0;
     private int contador2 = 0;
     private int contador3 = 0;
@@ -39,7 +42,7 @@ public class ControladorJuego implements Initializable {
 
     public ControladorJuego() {
     }
-
+    //Controlador del boton numero 1
     @FXML
     public void boton1() {
         contador1++;
@@ -51,7 +54,7 @@ public class ControladorJuego implements Initializable {
         respuesta1.setImage(imagen);
         combinacionColores.set(0, (contador1));
     }
-
+    //Controlador del boton numero 2
     @FXML
     public void boton2() {
         contador2++;
@@ -63,7 +66,7 @@ public class ControladorJuego implements Initializable {
         respuesta2.setImage(imagen);
         combinacionColores.set(1, (contador2));
     }
-
+    //Controlador del boton numero 3
     @FXML
     public void boton3() {
         contador3++;
@@ -75,7 +78,7 @@ public class ControladorJuego implements Initializable {
         respuesta3.setImage(imagen);
         combinacionColores.set(2, (contador3));
     }
-
+    //Controlador del boton numero 4
     @FXML
     public void boton4() {
         contador4++;
@@ -87,12 +90,11 @@ public class ControladorJuego implements Initializable {
         respuesta4.setImage(imagen);
         combinacionColores.set(3, (contador4));
     }
-
+    //Comprueba cuantos colores hay en la combinacion y cuantos en la posicion correcta y proporciona informacion dependiendo del resultado
     @FXML
     public void respuesta() {
         dificultad.setDisable(true);
         int sumaColores = 0;
-
         List<Integer> colEcontrados=new ArrayList<>();
         System.out.println(combinacionColores);
         System.out.println(combinacionRes);
@@ -120,10 +122,8 @@ public class ControladorJuego implements Initializable {
                         sumaColores++;
                         boton4.setDisable(true);
                         break;
-
                 }
             } else if (combinacionRes.contains(combinacionColores.get(i))) {
-
                 if (!coloresEncontrados.contains(combinacionColores.get(i))) {
                     coloresEncontrados.add(combinacionColores.get(i));
                     encontrados++;
@@ -144,16 +144,14 @@ public class ControladorJuego implements Initializable {
                             break;
                     }
                 }
-
             }
-
         }
         errores++;
         error.setText(String.valueOf(errores));
         acierto.setText(String.valueOf(sumaColores));
         finJuego();
     }
-
+    //Método que se ejecuta al acabar el juego y da información al jugador de si ha logrado ganar o no
     public void finJuego() {
         String nivel = (String) dificultad.getValue();
         switch (nivel) {
@@ -185,7 +183,7 @@ public class ControladorJuego implements Initializable {
         }
     }
 
-
+    //Método de ayuda para finJuego(), deshabilita los botones
     private void reiniciarBotones() {
         botonReinicio.setDisable(false);
         botonReinicio.setVisible(true);
@@ -210,7 +208,7 @@ public class ControladorJuego implements Initializable {
             }
         }
     }
-
+    //Este método restablece los valores de todos los campos a como estaban en un principio
     public void reiniciar() {
         combinacionRes.clear();
         combinacionColores.clear();
@@ -250,5 +248,8 @@ public class ControladorJuego implements Initializable {
         crearCombinacion();
         dificultad.getItems().addAll("Fácil", "Medio", "Dificil");
         dificultad.setValue(String.valueOf("Fácil"));
+        fondo.setStyle("-fx-background-image: url('Imagenes/FondoMario.png');" + "-fx-background-repeat: stretch;"  +
+                "-fx-background-position: center center;");
+
     }
 }

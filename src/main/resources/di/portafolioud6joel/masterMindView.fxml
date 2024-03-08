@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="663.0" style="-fx-background-color: lightgray; -fx-border-color: grey; -fx-border-style: segments(10, 15, 15, 15)  line-cap round; -fx-border-width: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
+<VBox fx:id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="663.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="di.portafolioud6joel.ControladorJuego">
    <children>
       <HBox alignment="TOP_CENTER" prefHeight="72.0" prefWidth="580.0">
          <children>
@@ -19,7 +19,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
-                  <Image url="@Interrogante.PNG" />
+                  <Image url="@Interrogante.png" />
                </image>
             </ImageView>
             <ImageView fx:id="color2" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -27,7 +27,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
-                  <Image url="@Interrogante.PNG" />
+                  <Image url="@Interrogante.png" />
                </image>
             </ImageView>
             <ImageView fx:id="color3" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -35,7 +35,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
-                  <Image url="@Interrogante.PNG" />
+                  <Image url="@Interrogante.png" />
                </image>
             </ImageView>
             <ImageView fx:id="color4" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -43,7 +43,7 @@
                   <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
                </HBox.margin>
                <image>
-                  <Image url="@Interrogante.PNG" />
+                  <Image url="@Interrogante.png" />
                </image>
             </ImageView>
          </children>
@@ -135,44 +135,44 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="boton1" mnemonicParsing="false" onAction="#boton1" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton1" mnemonicParsing="false" onAction="#boton1" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fx:id="respuesta1" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Imagenes/Click.PNG" />
+                              <Image url="@Imagenes/Click.png" />
                            </image></ImageView>
                      </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="boton2" mnemonicParsing="false" onAction="#boton2" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton2" mnemonicParsing="false" onAction="#boton2" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fx:id="respuesta2" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Imagenes/Click.PNG" />
+                              <Image url="@Imagenes/Click.png" />
                            </image></ImageView>
                      </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="boton3" mnemonicParsing="false" onAction="#boton3" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton3" mnemonicParsing="false" onAction="#boton3" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fx:id="respuesta3" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Imagenes/Click.PNG" />
+                              <Image url="@Imagenes/Click.png" />
                            </image></ImageView>
                      </graphic></Button>
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="boton4" mnemonicParsing="false" onAction="#boton4" style="-fx-background-color: transparent; -fx-border-color: green;">
+                  <Button fx:id="boton4" mnemonicParsing="false" onAction="#boton4" style="-fx-background-color: transparent;">
                      <graphic>
                         <ImageView fx:id="respuesta4" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Imagenes/Click.PNG" />
+                              <Image url="@Imagenes/Click.png" />
                            </image></ImageView>
                      </graphic></Button>
                </children>

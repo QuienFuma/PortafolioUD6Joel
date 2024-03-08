@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -32,9 +33,7 @@ public class ControladorJuego implements Initializable {
     private int contador4 = 0;
     private ArrayList<Integer> combinacionRes = new ArrayList<>();
     private ArrayList<Integer> combinacionColores = new ArrayList<>();
-    private ArrayList<Integer> coloresCantidadEnc = new ArrayList<>();
     private int errores = 0;
-    private int coloresEncontrados = 0;
 
     public ControladorJuego() {
     }
@@ -89,31 +88,64 @@ public class ControladorJuego implements Initializable {
 
     @FXML
     public void respuesta() {
+        dificultad.setDisable(true);
         int sumaColores = 0;
-
+        int encontrados = 0;
+        List<Integer> colEcontrados=new ArrayList<>();
         System.out.println(combinacionColores);
         System.out.println(combinacionRes);
         for (int i = 0; i < 4; i++) {
             if (combinacionRes.get(i) == combinacionColores.get(i)) {
                 Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
-                if (i == 0) {
-                    color1.setImage(imagen);
-                    sumaColores++;
-                    boton1.setDisable(true);
-                } else if (i == 1) {
-                    color2.setImage(imagen);
-                    sumaColores++;
-                    boton2.setDisable(true);
-                } else if (i == 2) {
-                    color3.setImage(imagen);
-                    sumaColores++;
-                    boton3.setDisable(true);
-                } else if (i == 3) {
-                    color4.setImage(imagen);
-                    sumaColores++;
-                    boton4.setDisable(true);
+                switch (i) {
+                    case 0:
+                        color1.setImage(imagen);
+                        sumaColores++;
+                        boton1.setDisable(true);
+                        break;
+                    case 1:
+                        color2.setImage(imagen);
+                        sumaColores++;
+                        boton2.setDisable(true);
+                        break;
+                    case 2:
+                        color3.setImage(imagen);
+                        sumaColores++;
+                        boton3.setDisable(true);
+                        break;
+                    case 3:
+                        color4.setImage(imagen);
+                        sumaColores++;
+                        boton4.setDisable(true);
+                        break;
+
                 }
-            }/* else if (combinacionRes.contains(combinacionColores.get(i)) && !coloresCantidadEnc.contains(i)) {
+            } else if (combinacionRes.contains(combinacionColores.get(i))) {
+                ArrayList<Integer> coloresEncontrados = new ArrayList<>();
+                    coloresEncontrados.add(combinacionColores.get(i));
+                    encontrados++;
+                    Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
+
+                    switch (encontrados) {
+                        case 1:
+                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
+                            encuentro1.setImage(imagen);}
+                            break;
+                        case 2:
+                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
+                                encuentro2.setImage(imagen);}
+                            break;
+                        case 3:
+                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
+                                encuentro3.setImage(imagen);}
+                            break;
+                        case 4:
+                            if (!coloresEncontrados.contains(combinacionColores.get(i))) {
+                                encuentro4.setImage(imagen);}
+                            break;
+                    }
+            }
+            /* else if (combinacionRes.contains(combinacionColores.get(i)) && !coloresCantidadEnc.contains(i)) {
                 Image imagen = new Image(getClass().getResourceAsStream("Imagenes/" + combinacionColores.get(i) + ".png"));
                 coloresEncontrados++;
                 if (coloresEncontrados==1){
@@ -127,10 +159,7 @@ public class ControladorJuego implements Initializable {
                 }
                 coloresCantidadEnc.add(i);
             }*/
-            for(int u = 0;combinacionRes.contains(combinacionColores.get(u));u++){
 
-
-            }
 
         }
         errores++;
@@ -224,6 +253,7 @@ public class ControladorJuego implements Initializable {
         encuentro2.setImage(null);
         encuentro3.setImage(null);
         encuentro4.setImage(null);
+        dificultad.setDisable(false);
     }
 
     @Override

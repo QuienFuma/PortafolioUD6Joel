@@ -50,33 +50,33 @@
       </HBox>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
          <children>
-            <ComboBox fx:id="dificultad" prefHeight="25.0" prefWidth="86.0" promptText="Fácil">
+            <ComboBox fx:id="dificultad" prefHeight="25.0" prefWidth="86.0" promptText="Fácil" style="-fx-background-color: trasparent; -fx-border-color: lightcyan;">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin></ComboBox>
-            <Label fx:id="juego" text="¿Cual va a ser tu respuesta?">
+            <Label fx:id="juego" text="¿Cual va a ser tu respuesta?" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Errores: " textFill="#eb0101">
+                  <Label text="Errores: " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Black" size="16.0" />
                      </font></Label>
-                  <Label fx:id="error" layoutX="286.0" layoutY="23.0" text="0" textFill="RED">
+                  <Label fx:id="error" layoutX="286.0" layoutY="23.0" text="0" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Black" size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Colores encontrados: " textFill="#e1c435">
+                  <Label text="Objetos encontrados: " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Black" size="16.0" />
                      </font></Label>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -114,14 +114,14 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="71.0" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Aciertos: " textFill="#1d9421">
+                  <Label text="Aciertos: " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Black" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="acierto" layoutX="286.0" layoutY="24.0" text="0" textFill="#35972a">
+                  <Label fx:id="acierto" layoutX="286.0" layoutY="24.0" text="0" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Arial Black" size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -181,7 +181,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="botonRespuesta" mnemonicParsing="false" onAction="#respuesta" text="Responder">
+            <Button fx:id="botonRespuesta" mnemonicParsing="false" onAction="#respuesta" style="-fx-background-color: lightyellow;" text="Responder">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></Button>
@@ -189,7 +189,7 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button fx:id="botonReinicio" mnemonicParsing="false" onAction="#reiniciar" text="Reiniciar" visible="false" />
+            <Button fx:id="botonReinicio" mnemonicParsing="false" onAction="#reiniciar" style="-fx-background-color: lightyellow;" text="Reiniciar" visible="false" />
          </children>
       </HBox>
    </children>

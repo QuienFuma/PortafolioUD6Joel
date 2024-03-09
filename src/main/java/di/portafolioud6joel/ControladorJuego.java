@@ -7,7 +7,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.ImagePattern;
+
+
 
 
 import java.net.URL;
@@ -153,6 +156,7 @@ public class ControladorJuego implements Initializable {
     }
     //Método que se ejecuta al acabar el juego y da información al jugador de si ha logrado ganar o no
     public void finJuego() {
+
         String nivel = (String) dificultad.getValue();
         switch (nivel) {
             case "Fácil":
@@ -178,13 +182,38 @@ public class ControladorJuego implements Initializable {
         if (Integer.parseInt(acierto.getText()) == 4) {
             juego.setText("Enhorabuena has ganado!!");
             botonReinicio.setVisible(true);
+            botonReinicio.setDisable(false);
             dificultad.setDisable(true);
             botonRespuesta.setDisable(true);
+            Image imagen1 = new Image(getClass().getResourceAsStream("Imagenes/finJuego.jpg"));
+            fondo.setBackground(Background.fill(new ImagePattern(imagen1)));
+            boton1.setVisible(false);
+            boton2.setVisible(false);
+            boton3.setVisible(false);
+            boton4.setVisible(false);
+            respuesta1.setVisible(false);
+            respuesta2.setVisible(false);
+            respuesta3.setVisible(false);
+            respuesta4.setVisible(false);
+            dificultad.setVisible(false);
+            botonRespuesta.setVisible(false);
         }
     }
 
     //Método de ayuda para finJuego(), deshabilita los botones
     private void reiniciarBotones() {
+        Image imagen1 = new Image(getClass().getResourceAsStream("Imagenes/bowser.png"));
+        fondo.setBackground(Background.fill(new ImagePattern(imagen1)));
+        boton1.setVisible(false);
+        boton2.setVisible(false);
+        boton3.setVisible(false);
+        boton4.setVisible(false);
+        respuesta1.setVisible(false);
+        respuesta2.setVisible(false);
+        respuesta3.setVisible(false);
+        respuesta4.setVisible(false);
+        dificultad.setVisible(false);
+        botonRespuesta.setVisible(false);
         botonReinicio.setDisable(false);
         botonReinicio.setVisible(true);
         boton1.setDisable(true);
@@ -241,15 +270,28 @@ public class ControladorJuego implements Initializable {
         encuentro4.setImage(null);
         dificultad.setDisable(false);
         juego.setText("¿Cual va a ser tu respuesta?");
+        Image imagen1 = new Image(getClass().getResourceAsStream("Imagenes/FondoMario.png"));
+        fondo.setBackground(Background.fill(new ImagePattern(imagen1)));
+        boton1.setVisible(true);
+        boton2.setVisible(true);
+        boton3.setVisible(true);
+        boton4.setVisible(true);
+        respuesta1.setVisible(true);
+        respuesta2.setVisible(true);
+        respuesta3.setVisible(true);
+        respuesta4.setVisible(true);
+        dificultad.setVisible(true);
+        botonRespuesta.setVisible(true);
+        botonReinicio.setDisable(true);
+
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         crearCombinacion();
+        Image imagen1 = new Image(getClass().getResourceAsStream("Imagenes/FondoMario.png"));
         dificultad.getItems().addAll("Fácil", "Medio", "Dificil");
         dificultad.setValue(String.valueOf("Fácil"));
-        fondo.setStyle("-fx-background-image: url('Imagenes/FondoMario.png');" + "-fx-background-repeat: stretch;"  +
-                "-fx-background-position: center center;");
-
+        fondo.setBackground(Background.fill(new ImagePattern(imagen1)));
     }
 }
